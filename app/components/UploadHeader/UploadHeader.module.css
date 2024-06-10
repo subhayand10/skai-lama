@@ -1,0 +1,56 @@
+/* Widget.module.css */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: white; /* bg-white */
+    height: 20%;
+}
+
+.container.dark {
+    background-color: #27272a; /* dark:bg-zinc-800 */
+}
+
+.flexItemsCenter {
+    display: flex;
+    align-items: center;
+}
+
+.spaceX2 > *:not(:last-child) {
+    margin-right: 0.5rem; /* space-x-2 */
+}
+
+.spaceX4 > *:not(:last-child) {
+    margin-right: 1rem; /* space-x-4 */
+}
+
+.spaceX1 > *:not(:last-child) {
+    margin-right: 0.25rem; /* space-x-1 */
+}
+
+.textZinc600 {
+    color: #4b5563; /* text-zinc-600 */
+}
+
+.textZinc300 {
+    color: #d1d5db; /* dark:text-zinc-300 */
+}
+
+.textPurple600 {
+    color: #7c3aed; /* text-purple-600 */
+}
+
+.imgSmall {
+    width: 1.25rem; /* w-5 */
+    height: 1.25rem; /* h-5 */
+}
+
+.imgSmaller {
+    width: 0.625rem; /* w-2.5 */
+    height: 0.625rem; /* h-2.5 */
+}
+
+.imgRound {
+    border-radius: 50%; /* rounded-full */
+}

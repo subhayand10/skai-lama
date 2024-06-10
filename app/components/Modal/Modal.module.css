@@ -1,0 +1,81 @@
+/* Widget.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(31, 41, 55, 0.5); /* equivalent to bg-zinc-800 bg-opacity-50 */
+}
+
+.modal {
+  background-color: #ffffff; /* equivalent to bg-white */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  padding: 1.5rem; /* p-6 */
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+}
+
+.modal.dark {
+  background-color: #27272a; /* equivalent to dark:bg-zinc-800 */
+}
+
+.title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: bold; /* font-bold */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: medium; /* font-medium */
+  color: #374151; /* text-zinc-700 */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.label.dark {
+  color: #d4d4d8; /* dark:text-zinc-300 */
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #d1d5db; /* border-zinc-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  padding: 0.5rem; /* p-2 */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.input.dark {
+  border-color: #4b5563; /* dark:border-zinc-600 */
+}
+
+.input:focus {
+  outline: none; /* focus:outline-none */
+  border-color: #7c3aed; /* focus:ring-2 focus:ring-purple-500 */
+}
+
+.error-text {
+  color: #ef4444; /* text-red-500 */
+  font-size: 0.875rem; /* text-sm */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem; /* space-x-4 */
+}
+
+.cancel-button {
+  color: #ef4444; /* text-red-500 */
+}
+
+.create-button {
+  background-color: #7c3aed; /* bg-purple-600 */
+  color: #ffffff;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 0.375rem; /* rounded-md */
+}

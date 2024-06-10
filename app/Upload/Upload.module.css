@@ -1,0 +1,12 @@
+.mainContainer{
+    display: flex;
+}
+
+.cardContainer{
+    display: flex;
+    gap:10px;
+}
+
+.or{
+   text-align: center;
+}

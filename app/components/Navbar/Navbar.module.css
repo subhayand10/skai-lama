@@ -1,0 +1,39 @@
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-4 */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.button>button {
+  cursor: pointer;
+}
+.button > button {
+  padding-top: 0.5%;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-radius: 35.32px;
+  border-width: 0.75px 0.75px 0.75px 0.75px;
+  border-style: solid; /* You need to define the border style */
+  border-color: black; /* Assuming you want a black border, change as needed */
+  background-color: white;
+}
+
+.buttonInside {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}

@@ -1,0 +1,44 @@
+/* Widget.module.css */
+.container {
+    max-width: 28rem; /* max-w-md */
+    margin: 0 auto; /* mx-auto */
+    background-color: white; /* bg-white */
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    overflow: hidden;
+}
+
+.container.dark {
+    background-color: #27272a; /* dark:bg-zinc-800 */
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 42rem; /* md:max-w-2xl */
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 1rem; /* p-4 */
+}
+
+.icon {
+    height: 3rem; /* h-12 */
+    width: 3rem; /* w-12 */
+}
+
+.textContainer {
+    margin-left: 1rem; /* ml-4 */
+}
+
+.text {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 500; /* font-medium */
+    color: black; /* text-black */
+}
+
+.text.dark {
+    color: white; /* dark:text-white */
+}

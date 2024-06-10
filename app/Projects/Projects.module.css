@@ -1,0 +1,47 @@
+.headerContainer {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.headerTitle {
+  font-size: 1.875rem; /* equivalent to text-3xl */
+  font-weight: bold;
+  color: #7c3aed; /* equivalent to text-purple-600 */
+}
+
+.headerButton {
+  background-color: #18181b; /* equivalent to bg-zinc-900 */
+  color: #ffffff; /* equivalent to text-white */
+  padding: 0.5rem 1rem; /* equivalent to py-2 px-4 */
+  border-radius: 0.5rem; /* equivalent to rounded-lg */
+  display: flex;
+  align-items: center;
+}
+
+.headerButtonIcon {
+  margin-right: 0.5rem; /* equivalent to mr-2 */
+}
+
+.gridContainer {
+  display: grid;
+  gap: 1rem; /* Adjust the gap between grid items as needed */
+  grid-template-columns: repeat(2, 1fr); /* Default to 2 items per row */
+}
+
+@media (min-width: 768px) { /* `md` size, adjust this value based on your breakpoints */
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row for md and larger */
+  }
+}
+
+.gridItem {
+  background-color: #f0f0f0; /* Example background color */
+  padding: 1rem; /* Example padding */
+  border: 1px solid #ddd; /* Example border */
+  border-radius: 8px; /* Example border radius */
+  text-align: center; /* Center align text */
+}

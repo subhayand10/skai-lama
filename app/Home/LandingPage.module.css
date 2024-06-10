@@ -1,0 +1,228 @@
+/* Widget.module.css */
+
+/* Header.module.css */
+.headerContainer {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.headerTitle {
+  margin-bottom: 2%;
+  font-size: 1.875rem; /* equivalent to text-3xl */
+  font-weight: bold;
+  color: #7c3aed; /* equivalent to text-purple-600 */
+}
+
+.headerButton {
+  background-color: #18181b; /* equivalent to bg-zinc-900 */
+  color: #ffffff; /* equivalent to text-white */
+  padding: 0.5rem 1rem; /* equivalent to py-2 px-4 */
+  border-radius: 0.5rem; /* equivalent to rounded-lg */
+  display: flex;
+  align-items: center;
+}
+
+.headerButtonIcon {
+  margin-right: 0.5rem; /* equivalent to mr-2 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container.dark {
+  background-color: #18181b; /* equivalent to dark:bg-zinc-900 */
+}
+
+.card {
+  width: 100%;
+  background-color: #ffffff; /* equivalent to bg-white */
+}
+
+.card.dark {
+  background-color: #27272a; /* equivalent to dark:bg-zinc-800 */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  color: #52525b; /* text-zinc-600 */
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #3f3f46; /* hover:text-zinc-800 */
+}
+
+.link.dark {
+  color: #d4d4d8; /* dark:text-zinc-300 */
+}
+
+.link.dark:hover {
+  color: #f4f4f5; /* dark:hover:text-zinc-100 */
+}
+
+.icon {
+  margin-right: 0.5rem; /* mr-2 */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-4 */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.logo {
+  margin: 0 auto 1rem; /* mx-auto mb-4 */
+}
+
+.title {
+  margin: 0 auto 3% auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 73.41px;
+  font-weight: 700;
+  line-height: 86.03px;
+  text-align: center;
+  width: 694px;
+  height: 86px;
+  color: #7e22ce;
+}
+
+.title.dark {
+  color: #a78bfa; /* dark:text-purple-400 */
+}
+
+.text {
+  color: #838383; /* text-zinc-600 */
+  margin: 3% auto 3% auto; /* mb-6 */
+  width: 70%;
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 41.02px;
+  text-align: center;
+}
+
+.text.dark {
+  color: #d4d4d8; /* dark:text-zinc-300 */
+}
+
+.button {
+  cursor:pointer;
+  background-color: black; /* bg-purple-600 */
+  color: #ffffff;
+  padding: 1rem 2rem; /* py-2 px-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* space-x-2 */
+  margin: auto;
+  font-size: larger;
+}
+/* Grid.module.css */
+.gridContainer {
+  display: grid;
+  gap: 1rem; /* Adjust the gap between grid items as needed */
+  grid-template-columns: repeat(2, 1fr); /* Default to 2 items per row */
+}
+
+@media (min-width: 768px) {
+  /* `md` size, adjust this value based on your breakpoints */
+  .gridContainer {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 items per row for md and larger */
+  }
+}
+
+.gridItem {
+  background-color: #f0f0f0; /* Example background color */
+  padding: 1rem; /* Example padding */
+  border: 1px solid #ddd; /* Example border */
+  border-radius: 8px; /* Example border radius */
+  text-align: center; /* Center align text */
+}
+
+.button:hover {
+  background-color: #6d28d9; /* hover:bg-purple-700 */
+}
+
+.button.dark {
+  background-color: #8b5cf6; /* dark:bg-purple-500 */
+}
+
+.button.dark:hover {
+  background-color: #7c3aed; /* dark:hover:bg-purple-600 */
+}
+
+.headerContainer {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.headerTitle {
+  font-size: 1.875rem; /* equivalent to text-3xl */
+  font-weight: bold;
+  color: #7c3aed; /* equivalent to text-purple-600 */
+}
+
+.headerButton {
+  background-color: #18181b; /* equivalent to bg-zinc-900 */
+  color: #ffffff; /* equivalent to text-white */
+  padding: 0.5rem 1rem; /* equivalent to py-2 px-4 */
+  border-radius: 0.5rem; /* equivalent to rounded-lg */
+  display: flex;
+  align-items: center;
+}
+
+.headerButtonIcon {
+  margin-right: 0.5rem; /* equivalent to mr-2 */
+}
+
+.gridContainer {
+  display: grid;
+  gap: 1rem; /* Adjust the gap between grid items as needed */
+  grid-template-columns: repeat(2, 1fr); /* Default to 2 items per row */
+}
+
+@media (min-width: 768px) {
+  /* `md` size, adjust this value based on your breakpoints */
+  .gridContainer {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* 3 items per row for md and larger */
+  }
+}
+
+.gridItem {
+  background-color: #f0f0f0; /* Example background color */
+  padding: 1rem; /* Example padding */
+  border: 1px solid #ddd; /* Example border */
+  border-radius: 8px; /* Example border radius */
+  text-align: center; /* Center align text */
+}

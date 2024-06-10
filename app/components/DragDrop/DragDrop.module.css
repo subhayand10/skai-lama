@@ -1,0 +1,59 @@
+/* Widget.module.css */
+.container {
+    max-width: 32rem; /* max-w-lg */
+    margin: 0 auto; /* mx-auto */
+    padding: 1.5rem; /* p-6 */
+    border-width: 2px; /* border-2 */
+    border-style: dashed; /* border-dashed */
+    border-color: #d1d5db; /* border-zinc-300 */
+    border-radius: 0.5rem; /* rounded-lg */
+    text-align: center; /* text-center */
+}
+
+.iconContainer {
+    display: flex; /* flex */
+    justify-content: center; /* justify-center */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.icon {
+    height: 2.5rem; /* h-10 */
+    width: 2.5rem; /* w-10 */
+    color: #7c3aed; /* text-purple-600 */
+}
+
+.textPrimary {
+    color: #4b5563; /* text-zinc-700 */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.textPrimary.dark {
+    color: #d1d5db; /* dark:text-zinc-300 */
+}
+
+.textSecondary {
+    color: #6b7280; /* text-zinc-500 */
+    margin-bottom: 1rem; /* mb-4 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+.textSecondary.dark {
+    color: #9ca3af; /* dark:text-zinc-400 */
+}
+
+.button {
+    background-color: #7c3aed; /* bg-purple-600 */
+    color: #ffffff; /* text-white */
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    border-radius: 9999px; /* rounded-full */
+    cursor: pointer;
+    outline: none; /* focus:outline-none */
+}
+
+.button:hover {
+    background-color: #6d28d9; /* hover:bg-purple-700 */
+}
+
+.button:focus {
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.5); /* focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 */
+}
