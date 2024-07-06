@@ -1,15 +1,20 @@
 import React from "react";
 import styles from "./SideBar.module.css";
+import logo from "../../../public/logo.png"
+import settings from "../../../public/settings_small.png";
+import Image from "next/image";
+import { useMyContext } from "@/app/context/MyContext";
+
+// import { usePathname } from "next/navigation";
 
 export default function SideBar() {
+  const{menuItemIndex}=useMyContext()
+  //  const pathname = usePathname();
+  // console.log(pathname)
   return (
-    <div className={styles.container}>
+    <div className="flex flex-col p-4 h-screen dark:bg-[#44337a] bg-[#faf5ff] max-md:hidden ">
       <div className={styles.header}>
-        <img
-          src="https://placehold.co/40x40"
-          alt="Logo"
-          className={styles.logo}
-        />
+        <Image src={logo} alt="logo" />
         <span className={styles.title}>LAMA.</span>
       </div>
       <div className={styles.subtitle}>
@@ -18,25 +23,45 @@ export default function SideBar() {
       <nav className={styles.nav}>
         <ul>
           <li className={styles["nav-item"]}>
-            <a href="#" className={`${styles["nav-link"]}`}>
+            <a
+              href="#"
+              className={`${styles["nav-link"]} ${
+                menuItemIndex != 0 && styles.inactive
+              }`}
+            >
               <span className={styles["nav-icon"]}>1</span>
-              Projects
+              Extract
             </a>
           </li>
           <li className={styles["nav-item"]}>
-            <a href="#" className={`${styles["nav-link"]} ${styles.inactive}`}>
+            <a
+              href="#"
+              className={`${styles["nav-link"]} ${
+                menuItemIndex != 1 && styles.inactive
+              }`}
+            >
               <span className={styles["nav-icon"]}>2</span>
-              Widget Configurations
+              Edit Transcript
             </a>
           </li>
           <li className={styles["nav-item"]}>
-            <a href="#" className={`${styles["nav-link"]} ${styles.inactive}`}>
+            <a
+              href="#"
+              className={`${styles["nav-link"]} ${
+                menuItemIndex != 2 && styles.inactive
+              }`}
+            >
               <span className={styles["nav-icon"]}>3</span>
-              Deployment
+              Configuration
             </a>
           </li>
           <li className={styles["nav-item"]}>
-            <a href="#" className={`${styles["nav-link"]} ${styles.inactive}`}>
+            <a
+              href="#"
+              className={`${styles["nav-link"]} ${
+                menuItemIndex != 3 && styles.inactive
+              }`}
+            >
               <span className={styles["nav-icon"]}>4</span>
               Pricing
             </a>
@@ -45,10 +70,10 @@ export default function SideBar() {
       </nav>
       <div className={styles.footer}>
         <hr />
-        <a href="#" className={styles["footer-link"]}>
-          <img src="https://placehold.co/24x24" alt="Settings" />
-          Settings
-        </a>
+        <div className="flex gap-2 items-center">
+          <Image src={settings} alt="settings" />
+          <p>Settings</p>
+        </div>
       </div>
     </div>
   );

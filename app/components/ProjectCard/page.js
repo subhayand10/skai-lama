@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ProjectCard({title}) {
   return (
-    <Link href="Upload">
+    <Link href={{ pathname: "Upload", query: {title} }}>
       <div className={`${styles.card} dark`}>
         <div className={styles["card-content"]}>
           <div className={styles["icon-wrapper"]}>

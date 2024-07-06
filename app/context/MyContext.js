@@ -7,7 +7,15 @@ const MyContext = createContext({});
 // Create a provider component
 export default function MyProvider({ children }) {
   const [open, setOpen] = useState(false);
+  const [uploaded,setUploaded]=useState(false);
   const [backToHome, setBackToHome] = useState(false);
+  const [fetched, setFetched] = useState(true);
+  const [menuItemIndex, setMenuItemIndex] = useState(0);
+  const [transcriptText, setTranscriptText] = useState("");
+  const [linkedInPost, setLinkedInPost] = useState("");
+  const [twitterPost, setTwitterPost] = useState("");
+  const [twitterThread, setTwitterThread] = useState("");
+  const [aiDataFetched, setAiDataFetched] = useState(true);
   const [modalData, setModalData] = useState(() => {
     if (window.localStorage == undefined) return [];
     const savedModalData = localStorage.getItem("modalData");
@@ -25,6 +33,22 @@ export default function MyProvider({ children }) {
         setModalData,
         backToHome,
         setBackToHome,
+        uploaded,
+        setUploaded,
+        fetched,
+        setFetched,
+        menuItemIndex,
+        setMenuItemIndex,
+        transcriptText,
+        setTranscriptText,
+        linkedInPost,
+        setLinkedInPost,
+        twitterPost,
+        setTwitterPost,
+        twitterThread,
+        setTwitterThread,
+        aiDataFetched,
+        setAiDataFetched
       }}
     >
       {children}

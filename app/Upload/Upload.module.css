@@ -1,12 +1,24 @@
-.mainContainer{
-    display: flex;
+.mainContainer {
+  height: 100%;
+  display: flex;
 }
 
-.cardContainer{
-    display: flex;
-    gap:10px;
+.cardContainer {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 }
 
-.or{
-   text-align: center;
+.or {
+  text-align: center;
+}
+
+.uploadInput::placeholder {
+  padding-left: 20px; 
+  margin-left: 10px;
+}
+
+.uploadInput::-ms-input-placeholder{
+      padding-left: 20px; 
+  margin-left: 10px;
 }
