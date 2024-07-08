@@ -17,17 +17,19 @@ export default function MyProvider({ children }) {
   const [twitterThread, setTwitterThread] = useState("");
   const [aiDataFetched, setAiDataFetched] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [currentProjectTitle,setCurrentProjectTitle]=useState("")
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
   });
+  const [dragClicked, setDragClicked] = useState(false);
+  const [openSideBar, setOpenSideBar] = useState(false);
 
   const [modalData, setModalData] = useState(() => {
     if (window.localStorage == undefined) return [];
     const savedModalData = localStorage.getItem("modalData");
     return savedModalData !== null ? JSON.parse(savedModalData) : [];
   });
-  const [dragClicked, setDragClicked] = useState(false);
   return (
     <MyContext.Provider
       value={{
@@ -59,6 +61,10 @@ export default function MyProvider({ children }) {
         setWindowSize,
         showConfetti,
         setShowConfetti,
+        currentProjectTitle,
+        setCurrentProjectTitle,
+        openSideBar,
+        setOpenSideBar
 
       }}
     >

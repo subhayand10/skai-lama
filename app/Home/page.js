@@ -12,7 +12,7 @@ import add_icon from "../../public/add.png";
 
 const projectData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 export default function LandingPage() {
-  const { open, setOpen, modalData,backToHome,setBackToHome } = useMyContext();
+  const { open, setOpen, modalData,backToHome,setBackToHome,setCurrentProjectTitle } = useMyContext();
   const [projects,setProjects] = useState(false)
   const handleOpen = () => {
     setOpen(true);
@@ -43,7 +43,7 @@ export default function LandingPage() {
                 <div className={styles.gridContainer}>
                   {modalData.map((item, index) => (
                     <div key={index} className={styles.gridItem}>
-                      <ProjectCard title={item} />
+                      <ProjectCard title={item} setCurrentProjectTitle={setCurrentProjectTitle}/>
                     </div>
                   ))}
                 </div>

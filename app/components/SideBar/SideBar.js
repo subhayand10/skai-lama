@@ -5,18 +5,26 @@ import settings from "../../../public/settings_small.png";
 import Image from "next/image";
 import { useMyContext } from "@/app/context/MyContext";
 import Link from "next/link";
+import { IoMdClose } from "react-icons/io";
 
 // import { usePathname } from "next/navigation";
 
 export default function SideBar({upload,queryParams}) {
-  const{menuItemIndex}=useMyContext()
+  const{menuItemIndex,currentProjectTitle,openSideBar,setOpenSideBar}=useMyContext()
   //  const pathname = usePathname();
   // console.log(pathname)
   return (
-    <div className="flex flex-col p-4 h-screen dark:bg-[#44337a] bg-[#faf5ff] max-md:hidden ">
+    <div className={`flex flex-col p-4 h-screen dark:bg-[#44337a] bg-[#faf5ff] ${!openSideBar&&"max-md:hidden"} `}>
       <div className={styles.header}>
+        <Link href="Home">
+        <div className="flex justify-center items-center hover:cursor-pointer">
         <Image src={logo} alt="logo" />
         <span className={styles.title}>LAMA.</span>
+        </div>
+        </Link>
+        <div className={`${!openSideBar&&"md:hidden"} hover:cursor-pointer` } onClick={()=>{setOpenSideBar(false)}}>
+        <IoMdClose className="text-[#d6bcfa]" />
+        </div>
       </div>
       <div className={styles.subtitle}>
         <h2>Podcast Upload Flow</h2>
@@ -25,7 +33,7 @@ export default function SideBar({upload,queryParams}) {
         <ul>
           <li className={styles["nav-item"]}>
             <Link
-              href={{ pathname: "Upload", query: { title:queryParams } }}
+              href={{ pathname: "Upload", query: { title:currentProjectTitle } }}
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 0 && styles.inactive
               }`}
@@ -36,7 +44,7 @@ export default function SideBar({upload,queryParams}) {
           </li>
           <li className={styles["nav-item"]}>
             <Link
-              href="Edit"
+               href={{ pathname: "Edit", query: { title:currentProjectTitle } }}
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 1 && styles.inactive
               }`}
@@ -47,7 +55,7 @@ export default function SideBar({upload,queryParams}) {
           </li>
           <li className={styles["nav-item"]}>
             <Link
-              href="Config"
+               href={{ pathname: "Config", query: { title:currentProjectTitle } }}
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 2 && styles.inactive
               }`}
@@ -58,7 +66,7 @@ export default function SideBar({upload,queryParams}) {
           </li>
           <li className={styles["nav-item"]}>
             <Link
-              href="Payment"
+               href={{ pathname: "Payment", query: { title:currentProjectTitle } }}
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 3 && styles.inactive
               }`}

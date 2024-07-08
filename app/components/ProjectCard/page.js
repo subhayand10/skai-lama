@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./ProjectCard.module.css";
 import Link from "next/link";
 
-export default function ProjectCard({title}) {
+export default function ProjectCard({title,setCurrentProjectTitle}) {
   return (
     <Link href={{ pathname: "Upload", query: {title} }}>
-      <div className={`${styles.card} dark`}>
+      <div className={`${styles.card} dark`} onClick={()=>{setCurrentProjectTitle(title)}}>
         <div className={styles["card-content"]}>
           <div className={styles["icon-wrapper"]}>
             <div className={styles.icon}>
