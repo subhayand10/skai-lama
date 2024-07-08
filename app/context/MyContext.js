@@ -16,6 +16,12 @@ export default function MyProvider({ children }) {
   const [twitterPost, setTwitterPost] = useState("");
   const [twitterThread, setTwitterThread] = useState("");
   const [aiDataFetched, setAiDataFetched] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
   const [modalData, setModalData] = useState(() => {
     if (window.localStorage == undefined) return [];
     const savedModalData = localStorage.getItem("modalData");
@@ -48,7 +54,12 @@ export default function MyProvider({ children }) {
         twitterThread,
         setTwitterThread,
         aiDataFetched,
-        setAiDataFetched
+        setAiDataFetched,
+        windowSize,
+        setWindowSize,
+        showConfetti,
+        setShowConfetti,
+
       }}
     >
       {children}

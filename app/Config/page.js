@@ -11,10 +11,14 @@ import SocialsText from "../components/SocialsText/SocialsText";
 const socialMedias=["LinkedIn Post", "Twitter Post", "Twitter Thread"]
 
 const Configuration = () => {
-  const { setMenuItemIndex, linkedInPost, twitterPost,twitterThread } = useMyContext();
+  const { setMenuItemIndex, linkedInPost, twitterPost,twitterThread,setWindowSize } = useMyContext();
   const posts=[linkedInPost,twitterPost,twitterThread]
   const searchParams = useSearchParams();
   useEffect(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
     setMenuItemIndex(2);
   }, []);
   return (
@@ -29,7 +33,13 @@ const Configuration = () => {
         </div>
         <div className="border border-[2px] border-red-300 rounded-md h-[100%]">
           {socialMedias.map((socialMedias,index)=>{
-            return <SocialsText SocialMedia={socialMedias} post={posts[index]}/>
+            return (
+              <SocialsText
+                SocialMedia={socialMedias}
+                post={posts[index]}
+                title={searchParams.get("title")}
+              />
+            );
           })}
         </div>
         

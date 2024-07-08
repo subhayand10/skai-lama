@@ -4,10 +4,11 @@ import logo from "../../../public/logo.png"
 import settings from "../../../public/settings_small.png";
 import Image from "next/image";
 import { useMyContext } from "@/app/context/MyContext";
+import Link from "next/link";
 
 // import { usePathname } from "next/navigation";
 
-export default function SideBar() {
+export default function SideBar({upload,queryParams}) {
   const{menuItemIndex}=useMyContext()
   //  const pathname = usePathname();
   // console.log(pathname)
@@ -23,48 +24,48 @@ export default function SideBar() {
       <nav className={styles.nav}>
         <ul>
           <li className={styles["nav-item"]}>
-            <a
-              href="#"
+            <Link
+              href={{ pathname: "Upload", query: { title:queryParams } }}
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 0 && styles.inactive
               }`}
             >
               <span className={styles["nav-icon"]}>1</span>
               Extract
-            </a>
+            </Link>
           </li>
           <li className={styles["nav-item"]}>
-            <a
-              href="#"
+            <Link
+              href="Edit"
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 1 && styles.inactive
               }`}
             >
               <span className={styles["nav-icon"]}>2</span>
               Edit Transcript
-            </a>
+            </Link>
           </li>
           <li className={styles["nav-item"]}>
-            <a
-              href="#"
+            <Link
+              href="Config"
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 2 && styles.inactive
               }`}
             >
               <span className={styles["nav-icon"]}>3</span>
               Configuration
-            </a>
+            </Link>
           </li>
           <li className={styles["nav-item"]}>
-            <a
-              href="#"
+            <Link
+              href="Payment"
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 3 && styles.inactive
               }`}
             >
               <span className={styles["nav-icon"]}>4</span>
               Pricing
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

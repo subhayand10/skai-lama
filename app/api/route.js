@@ -5,7 +5,6 @@ export async function POST(req) {
     // Parse the request body to extract the URL
     const body = await req.json();
     const url = body.url;
-
     if (!url) {
       return new Response(JSON.stringify({ error: "URL not provided" }), {
         status: 400,

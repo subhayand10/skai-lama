@@ -65,7 +65,7 @@ const Upload = () => {
         <UploadModal />
       ) : (
         <div className={styles.mainContainer}>
-          <SideBar />
+          <SideBar upload queryParams={searchParams.get("title")} />
           <div className="md:mx-auto max-md:w-[100%] w-[80%] ">
             <UploadHeader
               section={"Extract"}
