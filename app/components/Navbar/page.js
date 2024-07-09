@@ -8,7 +8,7 @@ import home from "../../../public/home.png";
 import notifications from "../../../public/notifications.png";
 import settings from "../../../public/settings.png";
 const Navbar = () => {
-  const {setBackToHome}=useMyContext()
+  const {setBackToHome,modalData,backToHome}=useMyContext()
   return (
     <>
       <div className={styles.header}>
@@ -25,18 +25,20 @@ const Navbar = () => {
           <Image src={settings} alt="settings" />
         </div>
       </div>
-      <div className={styles.button}>
+     {modalData.length > 0 && !backToHome && <div className={styles.button}>
         <button
           onClick={() => {
             setBackToHome(true);
           }}
         >
           <div className={styles.buttonInside}>
+            <div className='mx-2'>
             <Image src={home} alt="home" />
+            </div>
             <p>Back to Home</p>
           </div>
         </button>
-      </div>
+      </div>}
     </>
   );
 }

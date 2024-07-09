@@ -77,6 +77,7 @@
 // }
 
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -96,6 +97,11 @@ module.exports = {
         "custom-5": "16px 32px 14px 0px rgba(0, 0, 0, 0.02)",
         "custom-6": "25px 49px 16px 0px rgba(0, 0, 0, 0.0)",
       },
+    },
+    screens: {
+      'xxs':'300px',
+      'xs': '400px',
+      ...defaultTheme.screens,
     },
   },
   plugins: [],

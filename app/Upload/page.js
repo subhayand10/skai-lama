@@ -66,7 +66,7 @@ const Upload = () => {
       ) : (
         <div className={styles.mainContainer}>
           <SideBar upload queryParams={searchParams.get("title")} />
-          <div className="md:mx-auto max-md:w-[100%] w-[80%] ">
+          <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
             <UploadHeader
               section={"Extract"}
               title={searchParams.get("title")}
@@ -79,7 +79,7 @@ const Upload = () => {
               <UploadCard img={spotify} alt={"Spotify"} />
               <UploadCard img={rss} alt={"RSS feeds"} />
             </div>
-            <div className="relative  h-[81px] mt-3 w-[100%] max-lg:w-[90%] mx-auto">
+            <div className="relative  h-[81px] mt-3 w-[100%] max-lg:w-[90%] mx-auto mt-[5%]">
               <input
                 placeholder="Paste Your Link Here"
                 className={` w-[100%] h-[100%]  rounded-[41px] ${styles.uploadInput}`}
@@ -88,7 +88,7 @@ const Upload = () => {
                   setLink(e.target.value);
                 }}
               />
-              <div className=" relative top-[-100%] right-[-85%] max-xl:right-[-80%] max-lg:right-[-75%] max-md:right-[-70%] max-sm:right-[-65%]  h-[100%] w-[35%] sm:w-[30%] md:w-[25%] lg:w-[20%] xl:w-[15%]  ">
+              <div className=" relative top-[-100%] right-[-85%] max-xl:right-[-80%] max-lg:right-[-75%] max-md:right-[-70%] max-sm:right-[-65%]  h-[100%] w-[35%] sm:w-[30%] md:w-[25%] lg:w-[20%] xl:w-[15%]   ">
                 <div
                   className="flex h-[100%] bg-purple-600 rounded-[200px]"
                   onClick={sendExtractRequest}
@@ -101,12 +101,12 @@ const Upload = () => {
                 </div>
               </div>
             </div>
-            {!uploaded && (
+            {/* {!uploaded && (
               <p className="h-[43px] font-roboto text-[36.72px] font-normal leading-[43.03px] text-[#999999] text-center my-5">
                 or
               </p>
-            )}
-            {!uploaded && <DragDrop />}
+            )} */}
+            {/* {!uploaded && <DragDrop />} */}
             {/* <TryOut /> */}
             {uploaded && <Table tableData={"array"} />}
           </div>

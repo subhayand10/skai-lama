@@ -23,6 +23,7 @@
 }
 .button > button {
   padding-top: 0.5%;
+  padding-bottom: 0.5%;
   padding-left: 1%;
   padding-right: 1%;
   border-radius: 35.32px;
@@ -34,6 +35,5 @@
 
 .buttonInside {
   display: flex;
-  justify-items: center;
   align-items: center;
 }

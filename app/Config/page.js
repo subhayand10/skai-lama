@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../components/SideBar/SideBar";
 import styles from "./Config.module.css";
 import { useMyContext } from "../context/MyContext";
@@ -11,9 +11,31 @@ import SocialsText from "../components/SocialsText/SocialsText";
 const socialMedias=["LinkedIn Post", "Twitter Post", "Twitter Thread"]
 
 const Configuration = () => {
-  const { setMenuItemIndex, linkedInPost, twitterPost,twitterThread,setWindowSize } = useMyContext();
+  const { setMenuItemIndex, linkedInPost,setLinkedInPost, twitterPost,setTwitterPost,twitterThread,setTwitterThread,setWindowSize,setReadOnly,readOnly } = useMyContext();
   const posts=[linkedInPost,twitterPost,twitterThread]
   const searchParams = useSearchParams();
+  // const editValue=(e)=>{
+  //   setLinkedInPost(e.target.value)
+  // }
+  const deleteLPost=(editFlag)=>{
+    if(editFlag)
+    {
+      setReadOnly({...readOnly,lPost:false});
+
+    }
+    else
+    setLinkedInPost("")
+  }
+   const deleteTPost = (editFlag) => {
+    if (editFlag) {
+      setReadOnly({ ...readOnly, tPost: false });
+    }
+    else
+     setTwitterPost("");
+   };
+    const deleteTThread = (editFlag) => {
+      setTwitterThread("");
+    };
   useEffect(() => {
     setWindowSize({
       width: window.innerWidth,
@@ -26,18 +48,28 @@ const Configuration = () => {
       <SideBar />
       <div className="md:mx-auto max-md:w-[100%] w-[80%] ">
         <UploadHeader section={"Config"} title={searchParams.get("title")} />
-        <div className="flex justify-between">
-          <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] w-[360px] h-[64px] text-[#7E22CE]">
-            {searchParams.get("title")}
-          </p>
-        </div>
-        <div className="border border-[2px] border-red-300 rounded-md h-[100%]">
+        <div className=" border-[2px]  rounded-md h-[80%] ">
           {socialMedias.map((socialMedias,index)=>{
+            console.log("render")
             return (
               <SocialsText
+                type={
+                  index == 0
+                    ? "lPost"
+                    : index == 1
+                    ? "tPost"
+                    : "tThread"
+                }
                 SocialMedia={socialMedias}
                 post={posts[index]}
                 title={searchParams.get("title")}
+                deleteFunc={
+                  index == 0
+                    ? deleteLPost
+                    : index == 1
+                    ? deleteTPost
+                    : deleteTThread
+                }
               />
             );
           })}
