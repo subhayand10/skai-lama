@@ -64,7 +64,7 @@ const Upload = () => {
       {dragClicked ? (
         <UploadModal />
       ) : (
-        <div className={styles.mainContainer}>
+        <div className="h-[100%] flex md:flex-row flex-col">
           <SideBar upload queryParams={searchParams.get("title")} />
           <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
             <UploadHeader

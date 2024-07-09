@@ -44,22 +44,16 @@ const Configuration = () => {
     setMenuItemIndex(2);
   }, []);
   return (
-    <div className={styles.mainContainer}>
+    <div className="h-[100%] flex md:flex-row flex-col">
       <SideBar />
       <div className="md:mx-auto max-md:w-[100%] w-[80%] ">
         <UploadHeader section={"Config"} title={searchParams.get("title")} />
         <div className=" border-[2px]  rounded-md h-[80%] ">
-          {socialMedias.map((socialMedias,index)=>{
-            console.log("render")
+          {socialMedias.map((socialMedias, index) => {
+            console.log("render");
             return (
               <SocialsText
-                type={
-                  index == 0
-                    ? "lPost"
-                    : index == 1
-                    ? "tPost"
-                    : "tThread"
-                }
+                type={index == 0 ? "lPost" : index == 1 ? "tPost" : "tThread"}
                 SocialMedia={socialMedias}
                 post={posts[index]}
                 title={searchParams.get("title")}
@@ -74,7 +68,6 @@ const Configuration = () => {
             );
           })}
         </div>
-        
       </div>
     </div>
   );

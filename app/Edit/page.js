@@ -43,12 +43,12 @@ const Edit = () => {
     setAiDataFetched(true)
   };
   return (
-    <div className={styles.mainContainer}>
+    <div className="h-[100%] flex md:flex-row flex-col ">
       <SideBar />
       <div className="md:mx-auto max-md:w-[100%] w-[70%] lg:w-[80%] h-[100%] ">
         <UploadHeader section={"Edit"} title={searchParams.get("title")} />
         <div className="flex lg:flex-row flex-col justify-between">
-          <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] w-[360px] h-[64px] text-[#7E22CE]">
+          <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] text-wrap h-[64px] text-[#7E22CE]">
             Edit Transcript
           </p>
           <div
@@ -61,13 +61,13 @@ const Edit = () => {
               </div>
             )}
             <div className="">
-            <button type="button" className="">
-              Get Gist
-            </button>
+              <button type="button" className="">
+                Get Gist
+              </button>
             </div>
           </div>
         </div>
-        <textarea className="h-[50%] lg:h-[65%] w-[100%] rounded-lg pl-2 pt-2 text-[30px]">
+        <textarea className="h-[50%] lg:h-[65%] max-md:ml-2 max-460:w-[90%] max-md:w-[95%] w-[100%] rounded-lg pl-2 pt-2 text-[30px]">
           {transcriptText}
         </textarea>
       </div>
