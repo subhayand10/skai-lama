@@ -1,22 +1,20 @@
+"use client";
 import React from "react";
 import styles from "./SideBar.module.css";
-import logo from "../../../public/logo.png"
+import logo from "../../../public/logo.png";
 import settings from "../../../public/settings_small.png";
 import Image from "next/image";
 import { useMyContext } from "@/app/context/MyContext";
 import Link from "next/link";
 import { IoMdClose } from "react-icons/io";
 import AnimatedSideBar from "../AnimatedSideBar/AnimatedSideBar";
-import {
-  useWindowWidth,
-} from "@react-hook/window-size";
-
+import { useWindowWidth } from "@react-hook/window-size";
 
 export default function SideBar({ paymentsPageSize }) {
   const { menuItemIndex, currentProjectTitle, openSideBar, setOpenSideBar } =
     useMyContext();
   return (
-    <AnimatedSideBar width={useWindowWidth()}  >
+    <AnimatedSideBar width={useWindowWidth()}>
       <div
         className={`flex flex-col  p-4 h-screen max-md:h-[100%] dark:bg-[#44337a] bg-[#faf5ff] 
         ${!openSideBar && "max-md:hidden"} ${paymentsPageSize && "h-[125%]"}  `}

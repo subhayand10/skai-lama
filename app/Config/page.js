@@ -14,9 +14,7 @@ const Configuration = () => {
   const { setMenuItemIndex, linkedInPost,setLinkedInPost, twitterPost,setTwitterPost,twitterThread,setTwitterThread,setWindowSize,setReadOnly,readOnly } = useMyContext();
   const posts=[linkedInPost,twitterPost,twitterThread]
   const searchParams = useSearchParams();
-  // const editValue=(e)=>{
-  //   setLinkedInPost(e.target.value)
-  // }
+
   const deleteLPost=(editFlag)=>{
     if(editFlag)
     {
@@ -53,6 +51,7 @@ const Configuration = () => {
             console.log("render");
             return (
               <SocialsText
+              key={index}
                 type={index == 0 ? "lPost" : index == 1 ? "tPost" : "tThread"}
                 SocialMedia={socialMedias}
                 post={posts[index]}

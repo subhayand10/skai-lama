@@ -1,17 +1,17 @@
+"use client";
 import React, { useState } from "react";
 import styles from "./Modal.module.css";
 import { useMyContext } from "@/app/context/MyContext";
 
 export default function Modal() {
-  const [text,setText]=useState("")
+  const [text, setText] = useState("");
   const { setOpen, setModalData } = useMyContext();
   const handleClose = () => {
     setOpen(false);
   };
   const handleProjectCreation = () => {
-    if(!text)
-      return
-    setModalData((item)=>[...item,text])
+    if (!text) return;
+    setModalData((item) => [...item, text]);
     setOpen(false);
   };
   return (
@@ -24,16 +24,31 @@ export default function Modal() {
         <input
           type="text"
           value={text}
-          onChange={(e)=>{setText(e.target.value)}}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
           id="project-name"
           placeholder="Type here"
           className={`${styles.input} dark`}
           required
         />
-        {!text && <p className={styles["error-text"]}>Project Name Can't be empty</p>}
+        {!text && (
+          <p className={styles["error-text"]}>
+            Project Name Can&apos;t be empty
+          </p>
+        )}
         <div className={styles["button-group"]}>
-          <button onClick={handleClose} className={styles["cancel-button"]}>Cancel</button>
-          <button onClick={handleProjectCreation} className={`bg-[#7c3aed]  text-[#ffffff] px-4 py-2 rounded-md ${!text && "opacity-10"}`}>Create</button>
+          <button onClick={handleClose} className={styles["cancel-button"]}>
+            Cancel
+          </button>
+          <button
+            onClick={handleProjectCreation}
+            className={`bg-[#7c3aed]  text-[#ffffff] px-4 py-2 rounded-md ${
+              !text && "opacity-10"
+            }`}
+          >
+            Create
+          </button>
         </div>
       </div>
     </div>

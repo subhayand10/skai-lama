@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
 import { Progress } from "@/app/components/ui/progress";
 
 export function TopProgressBar() {

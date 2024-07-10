@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import styles from "./ProjectCard.module.css";
 import Link from "next/link";
 
-export default function ProjectCard({title,setCurrentProjectTitle,logoT}) {
+export default function ProjectCard({ title, setCurrentProjectTitle, logoT }) {
   return (
     <Link href={{ pathname: "Upload", query: { title } }}>
       <div

@@ -1,28 +1,22 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import styles from "./Upload.module.css";
 import SideBar from "../components/SideBar/SideBar";
 import UploadHeader from "../components/UploadHeader/UploadHeader";
 import UploadCard from "../components/UploadCard/UploadCard";
 import DragDrop from "../components/DragDrop/DragDrop";
 import UploadModal from "../components/UploadModal/UploadModal";
-import Table from "../components/Table/Table";
+
 import TryOut from "../components/TryOut/TryOut";
 import { useMyContext } from "../context/MyContext";
 import yt from "../../public/yt.png";
 import spotify from "../../public/spotify.png";
 import rss from "../../public/rss_feed.png";
-//import upload from "../../public/file_upload.png";
+
 import { GrFormUpload } from "react-icons/gr";
-import Image from "next/image";
-import { YoutubeTranscript } from "youtube-transcript";
 import CircularLoader from "../components/CircularLoader/CircularLoader";
 import { useSearchParams, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
-import AnimatedSideBar from "../components/AnimatedSideBar/AnimatedSideBar";
-import {
-  useWindowWidth,
-} from "@react-hook/window-size";
+
 const Upload = () => {
   const {
     dragClicked,
@@ -90,7 +84,7 @@ const Upload = () => {
               <UploadCard img={spotify} alt={"Spotify"} />
               <UploadCard img={rss} alt={"RSS feeds"} />
             </div>
-            <div className="relative  h-[81px] mt-3 w-[100%] max-lg:w-[90%] mx-auto mt-[5%]">
+            <div className="relative  h-[81px] w-[100%] max-lg:w-[90%] mx-auto mt-[5%]">
               <input
                 placeholder="Paste Your Link Here"
                 className={` w-[100%] h-[100%]  rounded-[41px] ${styles.uploadInput}`}
@@ -119,7 +113,7 @@ const Upload = () => {
             )} */}
             {/* {!uploaded && <DragDrop />} */}
             {/* <TryOut /> */}
-            {uploaded && <Table tableData={"array"} />}
+            {/* {uploaded && <Table tableData={"array"} />} */}
           </div>
         </div>
       )}

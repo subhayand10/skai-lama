@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import styles from "./DragDrop.module.css";
 import { useMyContext} from "@/app/context/MyContext";

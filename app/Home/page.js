@@ -1,11 +1,10 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./LandingPage.module.css";
 import Modal from "../components/Modal/Modal";
 import { useMyContext } from "../context/MyContext";
 import ProjectCard from "../components/ProjectCard/page";
 import Navbar from "../components/Navbar/page";
-import ProjectsPage from "../Projects/page";
 import Image from "next/image";
 import hero_image from "../../public/hero_image.png"
 import add_icon from "../../public/add.png";

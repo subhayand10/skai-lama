@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 import styles from "./UploadHeader.module.css";
-import home from "../../../public/home.png"
+import home from "../../../public/home.png";
 import noti from "../../../public/notifications.png";
 import avatar_user from "../../../public/avatar_user.png";
 import dropdown_icon from "../../../public/dropdown_icon.png";
@@ -10,8 +11,8 @@ import { DropdownMenuRadioGroupDemo } from "../DropDown/DropDown";
 import { useMyContext } from "@/app/context/MyContext";
 import Link from "next/link";
 
-export default function UploadHeader({section,title}) {
-  const {setOpenSideBar,openSideBar}=useMyContext();
+export default function UploadHeader({ section, title }) {
+  const { setOpenSideBar, openSideBar } = useMyContext();
   return (
     <div className={`${styles.container} dark`}>
       <div className="flex items-center">

@@ -1,15 +1,15 @@
-import React from 'react'
-import styles from "./Navbar.module.css"
-import { useMyContext } from '@/app/context/MyContext';
-import Image from 'next/image';
-import logo from "../../../public/logo.png"
-import postAi from "../../../public/postAi.png"
+"use client";
+import React from "react";
+import styles from "./Navbar.module.css";
+import { useMyContext } from "@/app/context/MyContext";
+import Image from "next/image";
+import logo from "../../../public/logo.png";
 import home from "../../../public/home.png";
 import notifications from "../../../public/notifications.png";
 import settings from "../../../public/settings.png";
-import { DropdownMenuRadioGroupDemo } from '../DropDown/DropDown';
+import { DropdownMenuRadioGroupDemo } from "../DropDown/DropDown";
 const Navbar = () => {
-  const {setBackToHome,modalData,backToHome}=useMyContext()
+  const { setBackToHome, modalData, backToHome } = useMyContext();
   return (
     <>
       <div className={styles.header}>
@@ -60,6 +60,6 @@ const Navbar = () => {
       )}
     </>
   );
-}
+};
 
-export default Navbar
+export default Navbar;

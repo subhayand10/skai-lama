@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import copy from "../../../public/Copy.png";
 import refresh from "../../../public/refresh.png";
@@ -7,7 +8,7 @@ import Image from "next/image";
 import { useMyContext } from "@/app/context/MyContext";
 import styles from "./SocialsText.module.css";
 import Link from "next/link";
-import run from "../../Api"
+import run from "../../Api";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import CircularLoader from "../CircularLoader/CircularLoader";
 import { FaClipboardCheck } from "react-icons/fa";
@@ -23,46 +24,40 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
     setRefresh,
     transcriptText,
     refreshFetched,
-    setRefreshFetched
+    setRefreshFetched,
   } = useMyContext();
   console.log(post);
   // useEffect(()=>{
   //   setAiDataFetched(false)
   // },[])
   const handleRefresh = async (e) => {
-
-      // setRefreshFetched({...refreshFetched,e.target.attributes.value:false})
-    if (type == "tPost")
-    {
-      setRefreshFetched({...refreshFetched,tPost:false})
+    // setRefreshFetched({...refreshFetched,e.target.attributes.value:false})
+    if (type == "tPost") {
+      setRefreshFetched({ ...refreshFetched, tPost: false });
       setTwitterPost(
         await run(`Give a short and crisp Twitter post about this video transcript Text
         ${transcriptText}`)
       );
-      setRefreshFetched({...refreshFetched,tPost:true})
-    }
-    else if (type == "tThread")
-    {
-       setRefreshFetched({ ...refreshFetched, tThread: false });
+      setRefreshFetched({ ...refreshFetched, tPost: true });
+    } else if (type == "tThread") {
+      setRefreshFetched({ ...refreshFetched, tThread: false });
       setTwitterThread(
         await run(`Give a short and crisp Twitter thread about this video transcript Text
         ${transcriptText}`)
       );
-       setRefreshFetched({ ...refreshFetched, tThread: true });
-
-    }
-    else{
-      console.log("hello")
-      console.log(type)
- setRefreshFetched({ ...refreshFetched, lPost: false });
+      setRefreshFetched({ ...refreshFetched, tThread: true });
+    } else {
+      console.log("hello");
+      console.log(type);
+      setRefreshFetched({ ...refreshFetched, lPost: false });
       setLinkedInPost(
         await run(`Give a short and crisp linkedIn post about this video transcript Text
         ${transcriptText}`)
       );
-       setRefreshFetched({ ...refreshFetched, lPost: true });
+      setRefreshFetched({ ...refreshFetched, lPost: true });
     }
   };
-  console.log(refreshFetched)
+  console.log(refreshFetched);
   return (
     <div className="h-[31%] mt-2 px-2 border border-b-1 border-x-0 border-t-0  ">
       <div className="h-[100%]">

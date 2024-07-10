@@ -31,11 +31,12 @@ export default function MyProvider({ children }) {
     tPost: true,
     tThread: true,
   });
-  const [modalData, setModalData] = useState(() => {
-    if (window.localStorage == undefined) return [];
-    const savedModalData = localStorage.getItem("modalData");
-    return savedModalData !== null ? JSON.parse(savedModalData) : [];
-  });
+  // const [modalData, setModalData] = useState(() => {
+  //   if (window==undefined && window.localStorage == undefined) return [];
+  //   const savedModalData = localStorage.getItem("modalData");
+  //   return savedModalData !== null ? JSON.parse(savedModalData) : [];
+  // });
+     const [modalData, setModalData] = useState([]);
   return (
     <MyContext.Provider
       value={{
