@@ -17,48 +17,59 @@ import { GrFormUpload } from "react-icons/gr";
 import Image from "next/image";
 import { YoutubeTranscript } from "youtube-transcript";
 import CircularLoader from "../components/CircularLoader/CircularLoader";
-import { useSearchParams,useRouter } from "next/navigation";
-
+import { useSearchParams, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import AnimatedSideBar from "../components/AnimatedSideBar/AnimatedSideBar";
+import {
+  useWindowWidth,
+} from "@react-hook/window-size";
 const Upload = () => {
-  const { dragClicked, uploaded,fetched,setFetched,setMenuItemIndex,setTranscriptText} = useMyContext();
-  const [link,setLink]=useState("")
+  const {
+    dragClicked,
+    uploaded,
+    fetched,
+    setFetched,
+    setMenuItemIndex,
+    setTranscriptText,
+    openSideBar
+  } = useMyContext();
+  const [link, setLink] = useState("");
   const searchParams = useSearchParams();
-  const router=useRouter();
-  const formatText=(textArr)=>{
+  const router = useRouter();
+  const formatText = (textArr) => {
     let formattedText;
-    textArr.forEach((textObj)=>{
-     formattedText+=textObj.text+" "                                   
-    })
+    textArr.forEach((textObj) => {
+      formattedText += textObj.text + " ";
+    });
     return formattedText;
-  }
-  const removeApos = (text)=>{
+  };
+  const removeApos = (text) => {
     let formattedText; //&amp;#39;
-    formattedText= text.replace(/&amp;#39;/g, "'");
-    return formattedText.replace("undefined","");
-    
-  }
-  const sendExtractRequest = async() => {
+    formattedText = text.replace(/&amp;#39;/g, "'");
+    return formattedText.replace("undefined", "");
+  };
+  const sendExtractRequest = async () => {
     setFetched(false);
-      const response = await fetch("/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url:link }),
-      });
-      setLink("")
-      // console.log(await response.json());
-      const formattedText = formatText(await response.json());
-      const finalText=removeApos(formattedText)
-      console.log(finalText);
-      setTranscriptText(finalText);
-      setFetched(true);
-      setMenuItemIndex(1)
-      router.push(`Edit?title=${searchParams.get("title")}`);
-  }
-  useEffect(()=>{
+    const response = await fetch("/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url: link }),
+    });
+    setLink("");
+    // console.log(await response.json());
+    const formattedText = formatText(await response.json());
+    const finalText = removeApos(formattedText);
+    console.log(finalText);
+    setTranscriptText(finalText);
+    setFetched(true);
+    setMenuItemIndex(1);
+    router.push(`Edit?title=${searchParams.get("title")}`);
+  };
+  useEffect(() => {
     setMenuItemIndex(0);
-  },[])
+  }, []);
   return (
     <>
       {dragClicked ? (

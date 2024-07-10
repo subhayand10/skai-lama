@@ -97,11 +97,14 @@ module.exports = {
         "custom-5": "16px 32px 14px 0px rgba(0, 0, 0, 0.02)",
         "custom-6": "25px 49px 16px 0px rgba(0, 0, 0, 0.0)",
       },
+      fontFamily: {
+        "plus-jakarta-sans": ['"Plus Jakarta Sans"', "sans-serif"],
+      },
     },
     screens: {
-      'xxs':'300px',
-      'xs': '400px',
-      '460':'460px',
+      xxs: "300px",
+      xs: "400px",
+      460: "460px",
       ...defaultTheme.screens,
     },
   },

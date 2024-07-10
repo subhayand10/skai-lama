@@ -96,9 +96,9 @@
 .title {
   margin: 0 auto 3% auto;
   font-family: "Roboto", sans-serif;
-  font-size: 73.41px;
+  font-size: 43.41px;
   font-weight: 700;
-  line-height: 86.03px;
+
   text-align: center;
   
   height: 86px;
@@ -111,12 +111,11 @@
 
 .text {
   color: #838383; /* text-zinc-600 */
-  margin: 3% auto 3% auto; /* mb-6 */
-  width: 70%;
+  margin: 1% auto 1% auto; /* mb-6 */
   font-family: "Roboto", sans-serif;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 400;
-  line-height: 41.02px;
+
   text-align: center;
 }
 

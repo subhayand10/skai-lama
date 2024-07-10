@@ -71,23 +71,31 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
           <div className="flex gap-3">
             {/* <Link href={{ pathname: "Payment", query: { title } }}> */}
             <div
-              className="hover:cursor-pointer"
+              className="hover:cursor-pointer "
               onClick={() => {
                 setEditFlag(true);
                 deleteFunc(true);
               }}
             >
-              <Image src={edit} alt="edit" className="" />
+              <Image
+                src={edit}
+                alt="edit"
+                className=" hover:opacity-50 transition-all duration-200 ease-in-out"
+              />
             </div>
             {/* </Link> */}
             {!copiedText ? (
               <CopyToClipboard text={post} onCopy={() => setCopiedText(true)}>
                 <div className="hover:cursor-pointer">
-                  <Image src={copy} alt="copy" className="" />
+                  <Image
+                    src={copy}
+                    alt="copy"
+                    className="hover:opacity-50 transition-all duration-200 ease-in-out"
+                  />
                 </div>
               </CopyToClipboard>
             ) : (
-              <FaClipboardCheck className="h-[30%] "/>
+              <FaClipboardCheck className="h-[30%] " />
             )}
             {refreshFetched[type] ? (
               <div className="hover:cursor-pointer" value={type}>
@@ -96,7 +104,7 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
                   alt="refresh"
                   value={type}
                   onClick={handleRefresh}
-                  className=""
+                  className="hover:opacity-50 transition-all duration-200 ease-in-out"
                 />
               </div>
             ) : (
@@ -106,7 +114,11 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
             )}
 
             <div className="hover:cursor-pointer" onClick={deleteFunc}>
-              <Image src={del} alt="delete" className="" />
+              <Image
+                src={del}
+                alt="delete"
+                className="hover:opacity-50 transition-all duration-200 ease-in-out"
+              />
             </div>
           </div>
         </div>

@@ -4,8 +4,13 @@ import Link from "next/link";
 
 export default function ProjectCard({title,setCurrentProjectTitle,logoT}) {
   return (
-    <Link href={{ pathname: "Upload", query: {title} }}>
-      <div className={`${styles.card} dark`} onClick={()=>{setCurrentProjectTitle(title)}}>
+    <Link href={{ pathname: "Upload", query: { title } }}>
+      <div
+        className={`${styles.card} dark hover:opacity-50 transition-all duration-200 ease-in-out`}
+        onClick={() => {
+          setCurrentProjectTitle(title);
+        }}
+      >
         <div className={styles["card-content"]}>
           <div className={styles["icon-wrapper"]}>
             <div className={styles.icon}>
