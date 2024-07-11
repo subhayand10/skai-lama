@@ -1,6 +1,12 @@
+"use client";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMyContext } from "@/app/context/MyContext";
+import dynamic from "next/dynamic";
+// const MyContextProvider = dynamic(
+//   () => import("@/app/context/MyContext").then((mod) => mod.useMyContext),
+//   { ssr: false }
+// );
 
 const AnimatedSideBar = ({ children,width }) => {
     const {openSideBar}=useMyContext()

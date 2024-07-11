@@ -1,46 +1,53 @@
 "use client";
-import React, { useEffect, useState,useLayoutEffect } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import styles from "./LandingPage.module.css";
 import Modal from "../components/Modal/Modal";
 import { useMyContext } from "../context/MyContext";
 import ProjectCard from "../components/ProjectCard/page";
 import Navbar from "../components/Navbar/page";
 import Image from "next/image";
-import hero_image from "../../public/hero_image.png"
+import hero_image from "../../public/hero_image.png";
 import add_icon from "../../public/add.png";
 import ScrollDown from "../components/ScrollDownAnimation/ScrollDown";
 
 const projectData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-export default function LandingPage() {
-  const { open, setOpen, modalData, backToHome, setBackToHome, setCurrentProjectTitle,setModalData } = useMyContext();
-  const [projects, setProjects] = useState(false)
+const Home = () => {
+  const {
+    open,
+    setOpen,
+    modalData,
+    backToHome,
+    setBackToHome,
+    setCurrentProjectTitle,
+    setModalData,
+  } = useMyContext();
+  const [projects, setProjects] = useState(false);
   const handleOpen = () => {
     setOpen(true);
-    setBackToHome(false)
+    setBackToHome(false);
   };
 
   useEffect(() => {
-    localStorage.setItem("modalData", JSON.stringify(modalData))
+    localStorage.setItem("modalData", JSON.stringify(modalData));
   }, [modalData]);
 
-    // useLayoutEffect(() => {
-    //   //  if (typeof window !== "undefined" && window.localStorage !== undefined) {
-    //      const savedModalData = localStorage.getItem("modalData");
-    //      if (savedModalData !== null) {
-    //        setModalData(JSON.parse(savedModalData));
-    //      }
-    //   //  }
-    // }, []);
+  useEffect(() => {
+    //  if (typeof window !== "undefined" && window.localStorage !== undefined) {
+    const savedModalData = localStorage.getItem("modalData");
+    if (savedModalData !== null) {
+      setModalData(JSON.parse(savedModalData));
+    }
+    //  }
+  }, []);
 
   const logoText = (text) => {
-    const arr = text.split(/[\s-_]+/)
-    let result=""
+    const arr = text.split(/[\s-_]+/);
+    let result = "";
     arr.forEach((item) => {
-      result += item[0]
-    })
-    return result
-  }
-
+      result += item[0];
+    });
+    return result;
+  };
   return (
     <>
       {open ? (
@@ -108,5 +115,6 @@ export default function LandingPage() {
       )}
     </>
   );
-}
+};
 
+export default Home;

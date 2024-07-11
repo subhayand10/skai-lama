@@ -1,5 +1,11 @@
 "use client";
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 
 // Create a context with a default value
 const MyContext = createContext({});
@@ -25,18 +31,32 @@ export default function MyProvider({ children }) {
   const [dragClicked, setDragClicked] = useState(false);
   const [openSideBar, setOpenSideBar] = useState(false);
   const [refresh, setRefresh] = useState(false);
-  const [readOnly, setReadOnly] = useState({ lPost: true ,tPost:true,tThread:true});
+  const [readOnly, setReadOnly] = useState({
+    lPost: true,
+    tPost: true,
+    tThread: true,
+  });
   const [refreshFetched, setRefreshFetched] = useState({
     lPost: true,
     tPost: true,
     tThread: true,
   });
-  // const [modalData, setModalData] = useState(() => {
-  //   if (window==undefined && window.localStorage == undefined) return [];
-  //   const savedModalData = localStorage.getItem("modalData");
-  //   return savedModalData !== null ? JSON.parse(savedModalData) : [];
-  // });
-     const [modalData, setModalData] = useState([]);
+
+  const [modalData, setModalData] = useState(() => {
+    if (typeof window == "undefined") return [];
+    const savedModalData = localStorage.getItem("modalData");
+    return savedModalData !==null?JSON.parse(savedModalData):[]
+  });
+
+  // useLayoutEffect(() => {
+  //   if (typeof window !== "undefined" && window.localStorage !== undefined) {
+  //     const savedModalData = localStorage.getItem("modalData");
+  //     if (savedModalData !== null) {
+  //       setModalData(JSON.parse(savedModalData));
+  //     }
+  //   }
+  // }, []);
+
   return (
     <MyContext.Provider
       value={{
