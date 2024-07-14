@@ -31,7 +31,7 @@ export function DropdownMenuRadioGroupDemo({children,settings}) {
   return (
     <DropdownMenu className="">
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
-      <DropdownMenuContent side={!settings && width<880 ? `left`:`bottom`} className={`${settings?"w-25":"w-40"}` }>
+      <DropdownMenuContent  className={`${settings?"w-25":"w-40"} bg-black text-white` }>
         <DropdownMenuLabel className="ml-4">
           {!settings && "You are all caught up 😉"}
           {settings && "All set up 💥"}

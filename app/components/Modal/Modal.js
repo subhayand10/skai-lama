@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import { useMyContext } from "@/app/context/MyContext";
 
 export default function Modal() {
   const [text, setText] = useState("");
+  const [textLength, setTextLength] = useState(0);
   const { setOpen, setModalData } = useMyContext();
   const handleClose = () => {
     setOpen(false);
@@ -14,6 +15,9 @@ export default function Modal() {
     setModalData((item) => [...item, text]);
     setOpen(false);
   };
+useEffect(() =>{
+  setTextLength(text.length);
+},[text]);
   return (
     <div className={styles.overlay}>
       <div className={`${styles.modal} dark`}>
@@ -35,6 +39,11 @@ export default function Modal() {
         {!text && (
           <p className={styles["error-text"]}>
             Project Name Can&apos;t be empty
+          </p>
+        )}
+        {textLength>15 && (
+          <p className={styles["error-text"]}>
+            Project Name Can&apos;t be more than 15 characters
           </p>
         )}
         <div className={styles["button-group"]}>

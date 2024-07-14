@@ -59,7 +59,7 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
   };
   console.log(refreshFetched);
   return (
-    <div className="h-[31%] mt-2 px-2 border border-b-1 border-x-0 border-t-0  ">
+    <div className="h-[41%] mt-2 px-2   ">
       <div className="h-[100%]">
         <div className="flex justify-between">
           <p className="h-[54px] mb-5 font-roboto text-[38.57px] font-bold leading-[57.54px] text-[#7E22CE]">{`${SocialMedia}`}</p>
@@ -117,12 +117,6 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
             </div>
           </div>
         </div>
-        {/* <textarea
-          className={`${styles.text} w-[100%] bg-transparent outline-none `}
-       
-        >
-          {post.length>0 && post}
-        </textarea> */}
         <textarea
           className={`${styles.text} w-[100%] bg-transparent outline-none `}
           value={post}

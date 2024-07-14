@@ -47,16 +47,6 @@ export default function MyProvider({ children }) {
     const savedModalData = localStorage.getItem("modalData");
     return savedModalData !==null?JSON.parse(savedModalData):[]
   });
-
-  // useLayoutEffect(() => {
-  //   if (typeof window !== "undefined" && window.localStorage !== undefined) {
-  //     const savedModalData = localStorage.getItem("modalData");
-  //     if (savedModalData !== null) {
-  //       setModalData(JSON.parse(savedModalData));
-  //     }
-  //   }
-  // }, []);
-
   return (
     <MyContext.Provider
       value={{

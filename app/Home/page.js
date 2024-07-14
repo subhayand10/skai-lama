@@ -23,15 +23,6 @@ export default function LandingPage() {
     localStorage.setItem("modalData", JSON.stringify(modalData))
   }, [modalData]);
 
-    // useLayoutEffect(() => {
-    //   //  if (typeof window !== "undefined" && window.localStorage !== undefined) {
-    //      const savedModalData = localStorage.getItem("modalData");
-    //      if (savedModalData !== null) {
-    //        setModalData(JSON.parse(savedModalData));
-    //      }
-    //   //  }
-    // }, []);
-
   const logoText = (text) => {
     const arr = text.split(/[\s-_]+/)
     let result=""

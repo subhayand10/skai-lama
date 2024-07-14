@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import SideBar from "../components/SideBar/SideBar";
 import { useMyContext } from "../context/MyContext";
 import UploadHeader from "../components/UploadHeader/UploadHeader";
@@ -21,21 +21,44 @@ import AnimatedPaypalPointer from "../components/PaypalPointer/AnimatedPaypalPoi
 
 const Payments = () => {
   const { setMenuItemIndex,windowSize,setShowConfetti,showConfetti } = useMyContext();
+   const [gpayLogoHeight, setGpayLogoHeight] = useState(0);
+   const gpayLogoRef = useRef(null);
 
   const searchParams = useSearchParams();
   useEffect(() => {
     setShowConfetti(true); 
     setMenuItemIndex(3);
+     const updateGpayLogoHeight = () => {
+       if (gpayLogoRef.current) {
+         const rect = gpayLogoRef.current.getBoundingClientRect();
+         setGpayLogoHeight(rect.top + window.scrollY);
+       }
+     };
+
+     // Initial calculation
+     updateGpayLogoHeight();
+
+     // Add event listener for window resize
+     window.addEventListener("resize", updateGpayLogoHeight);
+
+     // Cleanup
+     return () => {
+       window.removeEventListener("resize", updateGpayLogoHeight);
+     };
   }, []);
+
+  useEffect(() =>{
+    console.log(gpayLogoHeight)
+  },[gpayLogoHeight]);
   return (
-    <div className="h-[200%] flex md:flex-row flex-col">
+    <div className={`h-[${gpayLogoHeight + "px"}] flex md:flex-row flex-col`}>
       {showConfetti && <Confs />}
       <Confs windowSize={windowSize} />
       <SideBar paymentsPageSize={true} />
-      <div className="md:mx-auto max-md:w-[100%] w-[80%] ">
+      <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
         <UploadHeader section={"Payments"} title={searchParams.get("title")} />
-        <div className="flex justify-between max-lg:mb-[15%] max-sm:mb-[30%]">
-          <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] w-[100%] h-[64px] text-[#7E22CE]">
+        <div className="flex justify-between max-lg:mb-[15%] max-sm:mb-[30%] max-md:mt-10">
+          <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] w-[100%] h-[64px] text-[#7E22CE] ">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -56,7 +79,7 @@ const Payments = () => {
             />
           </p>
         </div>
-        <div className="flex justify-center items-center gap-6 xl:h-[60%]  overflow-hidden">
+        <div className="flex justify-center items-center gap-6 xl:h-[60%]  overflow-hidden mt-10" >
           <div className="w-[30%]">
             <Image src={gpayQR} alt="gPayQR" className="" />
           </div>
@@ -65,7 +88,7 @@ const Payments = () => {
           </div>
         </div>
         <div className="flex justify-center items-center gap-6">
-          <div className="w-[10%]">
+          <div className="w-[10%]" ref={gpayLogoRef}>
             <Image src={gpay} alt="gPay" />
           </div>
           <div className="w-[10%]">
