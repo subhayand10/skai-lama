@@ -16,6 +16,7 @@ import rss from "../../public/rss_feed.png";
 import { GrFormUpload } from "react-icons/gr";
 import CircularLoader from "../components/CircularLoader/CircularLoader";
 import { useSearchParams, useRouter } from "next/navigation";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const Upload = () => {
   const {
@@ -25,7 +26,9 @@ const Upload = () => {
     setFetched,
     setMenuItemIndex,
     setTranscriptText,
-    openSideBar
+    openSideBar,
+    setShowAlert,
+    showAlert,
   } = useMyContext();
   const [link, setLink] = useState("");
   const searchParams = useSearchParams();
@@ -43,23 +46,33 @@ const Upload = () => {
     return formattedText.replace("undefined", "");
   };
   const sendExtractRequest = async () => {
-    setFetched(false);
-    const response = await fetch("/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ url: link }),
-    });
-    setLink("");
-    // console.log(await response.json());
-    const formattedText = formatText(await response.json());
-    const finalText = removeApos(formattedText);
-    console.log(finalText);
-    setTranscriptText(finalText);
-    setFetched(true);
-    setMenuItemIndex(1);
-    router.push(`Edit?title=${searchParams.get("title")}`);
+    try {
+      setFetched(false);
+      const response = await fetch("/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ url: link }),
+      });
+      if (response.statusCode == 200) {
+        setLink("");
+        // console.log(await response.json());
+        const formattedText = formatText(await response.json());
+        const finalText = removeApos(formattedText);
+        console.log(finalText);
+        setTranscriptText(finalText);
+        setMenuItemIndex(1);
+        router.push(`Edit?title=${searchParams.get("title")}`);
+      } else {
+        setShowAlert(true);
+        enqueueSnackbar("Can't extract transcript from this video😓!!!");
+        console.log("Cant exract transcript from the video");
+      }
+      setFetched(true);
+    } catch (e) {
+      console.log(e);
+    }
   };
   useEffect(() => {
     setMenuItemIndex(0);
@@ -86,7 +99,7 @@ const Upload = () => {
             </div>
             <div className="relative  h-[81px] w-[100%] max-lg:w-[90%] mx-auto mt-[5%]">
               <input
-                placeholder="Paste Your Link Here"
+                placeholder="Paste Your Youtube Video Link Here"
                 className={` w-[100%] h-[100%]  rounded-[41px] ${styles.uploadInput}`}
                 value={link}
                 onChange={(e) => {
@@ -106,14 +119,14 @@ const Upload = () => {
                 </div>
               </div>
             </div>
-            {/* {!uploaded && (
-              <p className="h-[43px] font-roboto text-[36.72px] font-normal leading-[43.03px] text-[#999999] text-center my-5">
-                or
-              </p>
-            )} */}
-            {/* {!uploaded && <DragDrop />} */}
-            {/* <TryOut /> */}
-            {/* {uploaded && <Table tableData={"array"} />} */}
+            {
+              <SnackbarProvider
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+              />
+            }
           </div>
         </div>
       )}

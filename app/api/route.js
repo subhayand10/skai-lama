@@ -13,6 +13,7 @@ export async function POST(req) {
     }
 
     const transcript = await YoutubeTranscript.fetchTranscript(url);
+    console.log("TRanscript"+transcript)
     return new Response(JSON.stringify(transcript), {
       status: 200,
       headers: { "Content-Type": "application/json" },

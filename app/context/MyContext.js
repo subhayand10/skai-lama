@@ -24,6 +24,7 @@ export default function MyProvider({ children }) {
   const [aiDataFetched, setAiDataFetched] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
   const [currentProjectTitle, setCurrentProjectTitle] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
@@ -88,6 +89,8 @@ export default function MyProvider({ children }) {
         setRefresh,
         refreshFetched,
         setRefreshFetched,
+        showAlert,
+        setShowAlert
       }}
     >
       {children}
