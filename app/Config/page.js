@@ -46,7 +46,7 @@ const Configuration = () => {
       <SideBar />
       <div className=" xl:mx-auto max-xl:w-[100%] w-[80%] ">
         <UploadHeader section={"Config"} title={searchParams.get("title")} />
-        <div className="  rounded-md h-[80%] max-md:h-[100%] max-md:mt-9 ">
+        <div className="  rounded-md h-[70%] max-md:h-[100%] max-md:mt-9 ">
           {socialMedias.map((socialMedias, index) => {
             console.log("render");
             return (

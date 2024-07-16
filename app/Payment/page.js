@@ -31,7 +31,10 @@ const Payments = () => {
      const updateGpayLogoHeight = () => {
        if (gpayLogoRef.current) {
          const rect = gpayLogoRef.current.getBoundingClientRect();
-         setGpayLogoHeight(rect.top + window.scrollY);
+         console.log(rect.top)
+         console.log(window.scrollY)
+         const tot = rect.top + window.scrollY;
+         setGpayLogoHeight(tot);
        }
      };
 
@@ -79,7 +82,7 @@ const Payments = () => {
             />
           </p>
         </div>
-        <div className="flex justify-center items-center gap-6 xl:h-[60%]  overflow-hidden mt-10" >
+        <div className="flex justify-center items-center gap-6 xl:h-[60%]  overflow-hidden max-lg:mt-10 max-md:mb-[30%]">
           <div className="w-[30%]">
             <Image src={gpayQR} alt="gPayQR" className="" />
           </div>
@@ -87,8 +90,11 @@ const Payments = () => {
             <Image src={phonepeQR} alt="phonepeQR" className="" />
           </div>
         </div>
-        <div className="flex justify-center items-center gap-6">
-          <div className="w-[10%]" ref={gpayLogoRef}>
+        <div
+          className="flex justify-center items-center gap-6"
+          ref={gpayLogoRef}
+        >
+          <div className="w-[10%]">
             <Image src={gpay} alt="gPay" />
           </div>
           <div className="w-[10%]">

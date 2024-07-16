@@ -21,7 +21,6 @@ const AnimatedSideBar = ({ children,width }) => {
     visible: { y: 0 },
     exit: { y: "-100%" },
   };
-  console.log(width)
   return (
     <AnimatePresence>
       <motion.div

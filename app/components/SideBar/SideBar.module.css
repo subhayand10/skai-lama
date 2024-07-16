@@ -54,7 +54,7 @@
 .nav-link.inactive {
     background-color: #e9d8fd; /* bg-purple-200 */
     color: #4a5568; /* text-zinc-700 */
-    color: #d1d5db; /* dark:text-zinc-300 */
+     /* dark:text-zinc-300 */
 }
 
 .nav-icon {
@@ -68,6 +68,7 @@
     background-color: #4a5568; /* dark:bg-zinc-700 */
     border-radius: 9999px; /* rounded-full */
     margin-right: 0.5rem; /* mr-2 */
+    color:#9f7aea
 }
 
 .footer {
