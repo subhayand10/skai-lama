@@ -48,6 +48,7 @@ const Upload = () => {
   const sendExtractRequest = async () => {
     try {
       setFetched(false);
+      //console.log("ooodDdAS");
       const response = await fetch("/api", {
         method: "POST",
         headers: {
@@ -55,7 +56,8 @@ const Upload = () => {
         },
         body: JSON.stringify({ url: link }),
       });
-      if (response.statusCode == 200) {
+      console.log(response);
+      if (response.status == 200) {
         setLink("");
         // console.log(await response.json());
         const formattedText = formatText(await response.json());
