@@ -90,7 +90,7 @@ export default function MyProvider({ children }) {
         refreshFetched,
         setRefreshFetched,
         showAlert,
-        setShowAlert
+        setShowAlert,
       }}
     >
       {children}

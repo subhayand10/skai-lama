@@ -14,7 +14,6 @@ import CircularLoader from "../CircularLoader/CircularLoader";
 import { FaClipboardCheck } from "react-icons/fa";
 
 const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
-  const [editFlag, setEditFlag] = useState(false);
   const [copiedText, setCopiedText] = useState(false);
   const {
     readOnly,
@@ -26,10 +25,6 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
     refreshFetched,
     setRefreshFetched,
   } = useMyContext();
-  console.log(post);
-  // useEffect(()=>{
-  //   setAiDataFetched(false)
-  // },[])
   const handleRefresh = async (e) => {
     // setRefreshFetched({...refreshFetched,e.target.attributes.value:false})
     if (type == "tPost") {
@@ -67,9 +62,8 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
             {/* <Link href={{ pathname: "Payment", query: { title } }}> */}
             <div
               className="hover:cursor-pointer "
-              onClick={() => {
-                setEditFlag(true);
-                deleteFunc(true);
+              onClick={(e) => {
+                deleteFunc(e, "edit");
               }}
             >
               <Image
@@ -80,7 +74,15 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
             </div>
             {/* </Link> */}
             {!copiedText ? (
-              <CopyToClipboard text={post} onCopy={() => setCopiedText(true)}>
+              <CopyToClipboard
+                text={post}
+                onCopy={() => {
+                  setCopiedText(true);
+                  setTimeout(() => {
+                    setCopiedText(false);
+                  }, 1000);
+                }}
+              >
                 <div className="hover:cursor-pointer">
                   <Image
                     src={copy}
@@ -108,7 +110,12 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
               </div>
             )}
 
-            <div className="hover:cursor-pointer" onClick={deleteFunc}>
+            <div
+              className="hover:cursor-pointer"
+              onClick={(e) => {
+                deleteFunc(e);
+              }}
+            >
               <Image
                 src={del}
                 alt="delete"
@@ -121,11 +128,12 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
           className={`${styles.text} w-[100%] bg-transparent  `}
           value={post}
           onChange={(e) => {
-            if (editFlag) {
-              if (type == "tPost") setTwitterPost(e.target.value);
-              else if (type == "tThread") setTwitterThread(e.target.value);
-              else setLinkedInPost(e.target.value);
-            }
+            if (type == "tPost" && !readOnly["tPost"])
+              setTwitterPost(e.target.value);
+            else if (type == "tThread" && !readOnly["tThread"])
+              setTwitterThread(e.target.value);
+            else if (type == "lPost" && !readOnly["lPost"])
+              setLinkedInPost(e.target.value);
           }}
         />
       </div>

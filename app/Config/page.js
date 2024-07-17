@@ -8,32 +8,40 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import SocialsText from "../components/SocialsText/SocialsText";
 
-const socialMedias=["LinkedIn Post", "Twitter Post", "Twitter Thread"]
+const socialMedias = ["LinkedIn Post", "Twitter Post", "Twitter Thread"];
 
 const Configuration = () => {
-  const { setMenuItemIndex, linkedInPost,setLinkedInPost, twitterPost,setTwitterPost,twitterThread,setTwitterThread,setWindowSize,setReadOnly,readOnly } = useMyContext();
-  const posts=[linkedInPost,twitterPost,twitterThread]
+  const {
+    setMenuItemIndex,
+    linkedInPost,
+    setLinkedInPost,
+    twitterPost,
+    setTwitterPost,
+    twitterThread,
+    setTwitterThread,
+    setWindowSize,
+    setReadOnly,
+    readOnly,
+  } = useMyContext();
+  const posts = [linkedInPost, twitterPost, twitterThread];
   const searchParams = useSearchParams();
 
-  const deleteLPost=(editFlag)=>{
-    if(editFlag)
-    {
-      setReadOnly({...readOnly,lPost:false});
-
+  const deleteLPost = (e, edit) => {
+    if (edit) {
+      setReadOnly({ ...readOnly, lPost: false });
+    } else {
+      setLinkedInPost("");
     }
-    else
-    setLinkedInPost("")
-  }
-   const deleteTPost = (editFlag) => {
-    if (editFlag) {
+  };
+  const deleteTPost = (e, edit) => {
+    if (edit) {
       setReadOnly({ ...readOnly, tPost: false });
-    }
-    else
-     setTwitterPost("");
-   };
-    const deleteTThread = (editFlag) => {
-      setTwitterThread("");
-    };
+    } else setTwitterPost("");
+  };
+  const deleteTThread = (e, edit) => {
+    if (edit) setReadOnly({ ...readOnly, tThread: false });
+    else setTwitterThread("");
+  };
   useEffect(() => {
     setWindowSize({
       width: window.innerWidth,
