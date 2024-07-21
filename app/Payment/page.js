@@ -84,7 +84,7 @@ const Payments = () => {
             />
           </p>
         </div>
-        <div className="flex justify-center items-center max-460:flex-col gap-6 xl:h-[50%]  overflow-hidden max-lg:mt-10 max-md:mb-[20%]">
+        <div className="  flex justify-center items-center max-460:flex-col gap-6 xl:h-[50%]  overflow-hidden max-lg:mt-10 max-md:mb-[20%]">
           <div className="w-[200px]">
             <Image src={gpQR} alt="gPayQR" className="" />
           </div>
