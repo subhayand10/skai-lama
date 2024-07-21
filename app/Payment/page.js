@@ -62,7 +62,7 @@ const Payments = () => {
       <SideBar paymentsPageSize={true} />
       <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
         <UploadHeader section={"Payments"} title={searchParams.get("title")} />
-        <div className="flex  justify-between flex-wrap max-xl:mb-[25%]  max-md:mt-10">
+        <div className="flex  justify-between flex-wrap max-xl:mb-[15%]  max-md:mt-10">
           <p className="mt-[-2%]  font-roboto text-5xl font-extrabold leading-[64.45px] w-[100%]  text-[#7E22CE] ">
             <Typewriter
               onInit={(typewriter) => {
