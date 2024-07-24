@@ -83,10 +83,10 @@ const Payments = () => {
           </p>
         </div>
         <div className="flex justify-center items-center gap-6 xl:h-[60%]  overflow-hidden max-lg:mt-10 max-md:mb-[30%]">
-          <div className="w-[30%]">
+          <div className="w-[20%]">
             <Image src={gpayQR} alt="gPayQR" className="" />
           </div>
-          <div className="w-[40%]  ">
+          <div className="w-[30%]  ">
             <Image src={phonepeQR} alt="phonepeQR" className="" />
           </div>
         </div>
