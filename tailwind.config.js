@@ -105,6 +105,7 @@ module.exports = {
       xxs: "300px",
       xs: "400px",
       460: "460px",
+      hq: '(max-height: 625px)',
       ...defaultTheme.screens,
     },
   },

@@ -13,6 +13,8 @@ import phonepe from "../../public/phonepe.png";
 import paypal from "../../public/paypal.png";
 import gpayQR from "../../public/gpayQR.jpg";
 import phonepeQR from "../../public/phonepeQR.png";
+import gpQR from "../../public/gpQR.PNG";
+import phQR from "../../public/phQR.PNG";
 import Confs from "../components/Confetti/Confs";
 import Typewriter from "typewriter-effect";
 import PaypalPointer from "../components/PaypalPointer/PaypalPointer";
@@ -60,8 +62,8 @@ const Payments = () => {
       <SideBar paymentsPageSize={true} />
       <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
         <UploadHeader section={"Payments"} title={searchParams.get("title")} />
-        <div className="flex justify-between max-lg:mb-[15%] max-sm:mb-[30%] max-md:mt-10">
-          <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] w-[100%] h-[64px] text-[#7E22CE] ">
+        <div className="flex  justify-between flex-wrap max-xl:mb-[15%]  max-md:mt-10">
+          <p className="mt-[-2%]  font-roboto text-5xl font-extrabold leading-[64.45px] w-[100%]  text-[#7E22CE] ">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -82,12 +84,12 @@ const Payments = () => {
             />
           </p>
         </div>
-        <div className="flex justify-center items-center gap-6 xl:h-[60%]  overflow-hidden max-lg:mt-10 max-md:mb-[30%]">
-          <div className="w-[20%]">
-            <Image src={gpayQR} alt="gPayQR" className="" />
+        <div className=" mt-9 flex justify-center items-center max-460:flex-col gap-6 xl:h-[50%]  overflow-hidden max-lg:mt-10 max-md:mb-[20%]">
+          <div className="w-[200px]">
+            <Image src={gpQR} alt="gPayQR" className="" />
           </div>
-          <div className="w-[30%]  ">
-            <Image src={phonepeQR} alt="phonepeQR" className="" />
+          <div className="w-[200px]  ">
+            <Image src={phQR} alt="phonepeQR" className="" />
           </div>
         </div>
         <div
