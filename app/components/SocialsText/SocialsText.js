@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import copy from "../../../public/Copy.png";
 import refresh from "../../../public/refresh.png";
 import del from "../../../public/delete.png";
@@ -13,7 +13,8 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import CircularLoader from "../CircularLoader/CircularLoader";
 import { FaClipboardCheck } from "react-icons/fa";
 
-const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
+const SocialsText = ({ SocialMedia, post, title, deleteFunc, type ,refName,customIndex}) => {
+  //const textbox = useRef([]);
   const [copiedText, setCopiedText] = useState(false);
   const {
     readOnly,
@@ -53,6 +54,17 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
     }
   };
   console.log(refreshFetched);
+  // useEffect(()=>{
+  //   setTimeout(() => {
+  //     refName.current[0].focus();
+  //   }, 1000);
+  //   setTimeout(()=>{refName.current[1].focus();},2000)
+  //   setTimeout(() => { refName.current[2].focus();}, 3000);
+  //   setTimeout(() => {
+  //     refName.current[2].blur();
+  //   }, 4000);
+  // },[])
+
   return (
     <div className="lg:h-[35%] md:h-[35%] h-[50%] mt-2 px-2   ">
       <div className="h-[100%]">
@@ -125,6 +137,7 @@ const SocialsText = ({ SocialMedia, post, title, deleteFunc, type }) => {
           </div>
         </div>
         <textarea
+          ref={(el) => (refName.current[customIndex] = el)}
           className={`${styles.text} w-[100%] bg-transparent  `}
           value={post}
           onChange={(e) => {

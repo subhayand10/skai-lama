@@ -62,7 +62,7 @@ const Payments = () => {
       <SideBar paymentsPageSize={true} />
       <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
         <UploadHeader section={"Payments"} title={searchParams.get("title")} />
-        <div className="flex  justify-between flex-wrap max-xl:mb-[15%]  max-md:mt-10">
+        <div className="flex  justify-between flex-wrap max-xl:mb-[10%]  max-md:mt-10">
           <p className="mt-[-2%]  font-roboto text-5xl font-extrabold leading-[64.45px] w-[100%]  text-[#7E22CE] ">
             <Typewriter
               onInit={(typewriter) => {
@@ -84,7 +84,7 @@ const Payments = () => {
             />
           </p>
         </div>
-        <div className=" mt-9 flex justify-center items-center max-460:flex-col gap-6 xl:h-[50%]  overflow-hidden max-lg:mt-10 max-md:mb-[20%]">
+        <div className=" mt-0 flex justify-center items-center max-460:flex-col gap-6 xl:h-[50%]  overflow-hidden max-lg:mt-10 max-md:mb-[20%]">
           <div className="w-[200px]">
             <Image src={gpQR} alt="gPayQR" className="" />
           </div>

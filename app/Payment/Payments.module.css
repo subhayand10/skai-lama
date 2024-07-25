@@ -2,3 +2,11 @@
   height: 100%;
   display: flex;
 }
+
+@media screen and (max-height: 625px) {
+  /* Your styles here */
+  .qr-style{
+    display: hidden;
+    
+  }
+}

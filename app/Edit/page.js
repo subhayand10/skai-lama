@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect,useRef } from "react";
 import SideBar from "../components/SideBar/SideBar";
 import styles from "./Edit.module.css";
 import { useMyContext } from "../context/MyContext";
@@ -22,8 +22,10 @@ const Edit = () => {
     aiDataFetched,
     refresh,
   } = useMyContext();
+  const textbox=useRef()
   useEffect(() => {
     setMenuItemIndex(1);
+    textbox.current.focus()
   }, []);
   const callApi = async () => {
     setAiDataFetched(false)
@@ -67,7 +69,7 @@ const Edit = () => {
             </div>
           </div>
         </div>
-        <textarea className="h-[50%] lg:h-[65%] max-md:ml-2 max-460:w-[90%] max-md:w-[95%] w-[100%] rounded-lg pl-2 pt-2 text-[30px]">
+        <textarea ref={textbox} className="h-[50%] lg:h-[65%] max-md:ml-2 max-460:w-[90%] max-md:w-[95%] w-[100%] rounded-lg pl-2 pt-2 text-[30px]">
           {transcriptText}
         </textarea>
       </div>

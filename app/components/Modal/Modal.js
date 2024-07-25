@@ -12,12 +12,13 @@ export default function Modal() {
   };
   const handleProjectCreation = () => {
     if (!text) return;
+    if (textLength > 15) return;
     setModalData((item) => [...item, text]);
     setOpen(false);
   };
-useEffect(() =>{
-  setTextLength(text.length);
-},[text]);
+  useEffect(() => {
+    setTextLength(text.length);
+  }, [text]);
   return (
     <div className={styles.overlay}>
       <div className={`${styles.modal} dark`}>
@@ -41,7 +42,7 @@ useEffect(() =>{
             Project Name Can&apos;t be empty
           </p>
         )}
-        {textLength>15 && (
+        {textLength > 15 && (
           <p className={styles["error-text"]}>
             Project Name Can&apos;t be more than 15 characters
           </p>
@@ -53,8 +54,8 @@ useEffect(() =>{
           <button
             onClick={handleProjectCreation}
             className={`bg-[#7c3aed]  text-[#ffffff] px-4 py-2 rounded-md ${
-              !text && "opacity-10"
-            }`}
+              (!text || textLength > 15) && "opacity-10"
+            } `}
           >
             Create
           </button>

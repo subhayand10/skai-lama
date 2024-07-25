@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import SideBar from "../components/SideBar/SideBar";
 import styles from "./Config.module.css";
 import { useMyContext } from "../context/MyContext";
@@ -25,6 +25,7 @@ const Configuration = () => {
   } = useMyContext();
   const posts = [linkedInPost, twitterPost, twitterThread];
   const searchParams = useSearchParams();
+  const textbox = useRef([]);
 
   const deleteLPost = (e, edit) => {
     if (edit) {
@@ -48,6 +49,14 @@ const Configuration = () => {
       height: window.innerHeight,
     });
     setMenuItemIndex(2);
+    console.log(textbox)
+      // textbox.current.forEach((ref, index) => {
+      //   if (ref.current) {
+      //     ref.current.focus();
+      //   }
+      // });
+      // textbox.current[0].focus();
+      // textbox.current[1].focus();
   }, []);
   return (
     <div className="h-[100%] flex md:flex-row flex-col">
@@ -59,7 +68,9 @@ const Configuration = () => {
             console.log("render");
             return (
               <SocialsText
+                refName={textbox}
                 key={index}
+                customIndex={index}
                 type={index == 0 ? "lPost" : index == 1 ? "tPost" : "tThread"}
                 SocialMedia={socialMedias}
                 post={posts[index]}
