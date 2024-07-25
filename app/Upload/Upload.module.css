@@ -14,11 +14,21 @@
 }
 
 .uploadInput::placeholder {
-  padding-left: 20px; 
-  margin-left: 10px;
+  padding-left: 5px; 
 }
 
-.uploadInput::-ms-input-placeholder{
-      padding-left: 20px; 
-  margin-left: 10px;
+.uploadInput::-ms-input-placeholder {
+  padding-left: 5px; 
+}
+
+
+
+@media screen and (min-width: 500px) {
+.uploadInput::placeholder {
+  padding-left: 20px; 
+}
+
+.uploadInput::-ms-input-placeholder {
+  padding-left: 20px; 
+}
 }

@@ -101,14 +101,14 @@ const Upload = () => {
             </div>
             <div className="relative  h-[81px] w-[100%] max-lg:w-[90%] mx-auto mt-[5%]">
               <input
-                placeholder="Paste Your Youtube Video Link Here"
+                placeholder="Paste Your Youtube Video Link "
                 className={` w-[100%] h-[100%]  rounded-[41px] ${styles.uploadInput}`}
                 value={link}
                 onChange={(e) => {
                   setLink(e.target.value);
                 }}
               />
-              <div className=" relative top-[-100%] right-[-85%] max-xl:right-[-80%] max-lg:right-[-75%] max-md:right-[-70%] max-sm:right-[-65%]  h-[100%] w-[35%] sm:w-[30%] md:w-[25%] lg:w-[20%] xl:w-[15%]   ">
+              <div className="  relative top-[-100%] right-[-85%] max-xl:right-[-80%] max-lg:right-[-75%] max-md:right-[-70%] max-sm:right-[-65%]  h-[100%] w-[35%] sm:w-[30%] md:w-[25%] lg:w-[20%] xl:w-[15%]   ">
                 <div
                   className="flex h-[100%] bg-purple-600 rounded-[200px]"
                   onClick={sendExtractRequest}
