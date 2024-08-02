@@ -1,8 +1,12 @@
 import pool from "@/lib/db";
+import { PrismaClient } from "@prisma/client";
 
 
+const prisma = new PrismaClient();
 export  async function GET(req, res) {
   try {
+    // const users = await prisma.user.findMany();
+    // console.log(typeof users);
     const { rows } = await pool.query("SELECT * FROM users");
     return new Response(JSON.stringify(rows), {
       status: 200,
