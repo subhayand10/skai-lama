@@ -23,14 +23,6 @@ export default function LandingPage() {
     localStorage.setItem("modalData", JSON.stringify(modalData))
   }, [modalData]);
 
-   useEffect(() => {
-   (async function sample(){
-    const data=await fetch("/api/dbtest")
-     const finalData=await data.json();
-     console.log(finalData)
-   })()
-     
-   }, []);
 
   const logoText = (text) => {
     const arr = text.split(/[\s-_]+/)

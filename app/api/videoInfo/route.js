@@ -7,7 +7,7 @@ export  async function GET(req, res) {
   try {
     // const users = await prisma.user.findMany();
     // console.log(typeof users);
-    const { rows } = await pool.query("SELECT * FROM users");
+    const { rows } = await pool.query("SELECT * FROM videos");
     return new Response(JSON.stringify(rows), {
       status: 200,
       headers: { "Content-Type": "application/json" },

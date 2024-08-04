@@ -78,6 +78,17 @@ const Upload = () => {
   };
   useEffect(() => {
     setMenuItemIndex(0);
+       (async function sample() {
+         const data = await fetch("/api/videoInfo");
+         let finalData = await data.json();
+         console.log(finalData);
+         const modData = [...finalData, { title: "Famous videos on our platform 👇🏻" }];
+
+         console.log(modData);
+         modData.forEach((titleObj)=>{
+          enqueueSnackbar(titleObj.title);
+         })
+        })();
   }, []);
   return (
     <>

@@ -7,18 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model users {
-  age  Int?
-  name String[] @db.Char
-
-  @@ignore
-}
-
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model hobbies {
-  sports String? @db.Char
-  music  String? @db.Char
-
-  @@ignore
+model videos {
+  title String @id
 }

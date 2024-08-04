@@ -41,7 +41,8 @@
     "tailwindcss-animate": "^1.0.7",
     "typewriter-effect": "^2.21.0",
     "window-size": "^1.1.1",
-    "youtube-transcript": "^1.2.1"
+    "youtube-transcript": "^1.2.1",
+    "yt-get": "^1.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
