@@ -17,6 +17,7 @@ import { GrFormUpload } from "react-icons/gr";
 import CircularLoader from "../components/CircularLoader/CircularLoader";
 import { useSearchParams, useRouter } from "next/navigation";
 import { SnackbarProvider, enqueueSnackbar } from "notistack";
+import YtSnackBar from "../components/YtSnackBar/YtSnackBar";
 
 const Upload = () => {
   const {
@@ -81,12 +82,22 @@ const Upload = () => {
        (async function sample() {
          const data = await fetch("/api/videoInfo");
          let finalData = await data.json();
-         console.log(finalData);
-         const modData = [...finalData, { title: "Famous videos on our platform 👇🏻" }];
-
+         //console.log(finalData);
+         //const modData = [...finalData, { title: "Famous videos on our platform 👇🏻",urls:["",""] }];
+         finalData.push({
+           title: "Famous videos on our platform 👇🏻",
+           urls: ["", ""],
+         });
+          const modData = JSON.parse(JSON.stringify(finalData));
          console.log(modData);
-         modData.forEach((titleObj)=>{
-          enqueueSnackbar(titleObj.title);
+         modData.forEach((titleObj,index)=>{
+          console.log(titleObj);
+              YtSnackBar(
+                titleObj.title,
+                titleObj.urls[1],
+                index,
+                modData.length
+              );
          })
         })();
   }, []);

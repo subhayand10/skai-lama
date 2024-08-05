@@ -8,5 +8,6 @@ datasource db {
 }
 
 model videos {
-  title String @id
+  title String   @id
+  urls  String[] @db.VarChar
 }
