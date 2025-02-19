@@ -5,7 +5,7 @@ import { useMyContext } from "@/app/context/MyContext";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
 import home from "../../../public/home.png";
-import notifications from "../../../public/notifications.png";
+import notifications from "../../../public/bell.png";
 import settings from "../../../public/settings.png";
 import { DropdownMenuRadioGroupDemo } from "../DropDown/DropDown";
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
           <div>
             <p className="font-plus-jakarta-sans text-[37.74px] font-extrabold leading-[47.56px] text-[#7E22CE]">
-              Post.Ai
+              Ques.AI
             </p>
           </div>
         </div>

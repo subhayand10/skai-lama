@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./UploadHeader.module.css";
 import home from "../../../public/home.png";
 import noti from "../../../public/notifications.png";
-import avatar_user from "../../../public/avatar_user.png";
+import avatar_user from "../../../public/logout.png";
 import dropdown_icon from "../../../public/dropdown_icon.png";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -32,7 +32,7 @@ export default function UploadHeader({ section, title }) {
           <Image
             src={home}
             alt="home"
-            className="hover:cursor-pointer hover:opacity-50 transition-all duration-200 ease-in-out"
+            className="h-[100%] mx-auto hover:cursor-pointer hover:opacity-50 transition-all duration-200 ease-in-out"
           />
         </Link>
         <span className="mx-2 text-[#4b5563]">{`/ ${title} /`}</span>

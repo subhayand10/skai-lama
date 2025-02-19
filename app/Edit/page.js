@@ -53,23 +53,39 @@ const Edit = () => {
           <p className="mt-[-2%] mb-[2%] font-roboto text-5xl font-extrabold leading-[64.45px] text-wrap h-[64px] text-[#7E22CE]">
             Edit Transcript
           </p>
-          <div
-            className="bg-[#7E22CE] py-[10px] w-[30%] lg:w-[10%] text-center mb-4 rounded-md flex gap-2 flex-wrap justify-center max-lg:ml-2"
-            onClick={callApi}
-          >
-            {!aiDataFetched && (
+          <div className=" w-[60%] flex justify-end items-end content-between gap-4">
+            <div
+              className="text-[#E01919] border border-[#E01919] px-[50px] py-[10px] w-[30%] lg:w-[10%] text-center mb-4 rounded-md flex gap-2 flex-wrap justify-center max-lg:ml-2"
+              onClick={callApi}
+            >
               <div className="">
-                <CircularLoader />
+                <button type="button" className="text-re">
+                  Discard
+                </button>
               </div>
-            )}
-            <div className="">
-              <button type="button" className="">
-                Get Gist
-              </button>
+            </div>
+
+            <div
+              className="bg-black text-white py-[10px] px-[50px] w-[90%] lg:w-[10%] text-center mb-4 rounded-md flex gap-2 flex-wrap justify-center max-lg:ml-2"
+              onClick={callApi}
+            >
+              {!aiDataFetched && (
+                <div className="">
+                  <CircularLoader />
+                </div>
+              )}
+              <div className="">
+                <button type="button" className="">
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <textarea ref={textbox} className="h-[50%] lg:h-[65%] max-md:ml-2 max-460:w-[90%] max-md:w-[95%] w-[100%] rounded-lg pl-2 pt-2 text-[30px]">
+        <textarea
+          ref={textbox}
+          className="h-[50%] lg:h-[65%] max-md:ml-2 max-460:w-[90%] max-md:w-[95%] w-[100%] rounded-lg pl-2 pt-2 text-[30px]"
+        >
           {transcriptText}
         </textarea>
       </div>

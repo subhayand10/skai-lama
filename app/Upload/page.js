@@ -110,7 +110,7 @@ const Upload = () => {
           <SideBar upload queryParams={searchParams.get("title")} />
           <div className="md:mx-auto max-md:w-[100%] w-[80%]  ">
             <UploadHeader
-              section={"Extract"}
+              section={"Add your podcast"}
               title={searchParams.get("title")}
             />
             <p className="w-[174px] h-[64px] mx-auto mb-2 font-roboto text-[55px] font-bold leading-[64.45px] text-[#7E22CE]">

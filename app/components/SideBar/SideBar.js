@@ -23,7 +23,7 @@ export default function SideBar({ paymentsPageSize }) {
         <Link href="Home">
           <div className="flex justify-center items-center hover:cursor-pointer">
             <Image src={logo} alt="logo" />
-            <span className={styles.title}>Post.AI</span>
+            <span className={styles.title}>Ques.AI</span>
           </div>
         </Link>
         <div
@@ -53,7 +53,7 @@ export default function SideBar({ paymentsPageSize }) {
               }`}
             >
               <span className={styles["nav-icon"]}>1</span>
-              Extract
+              Add your Podcast(s)
             </Link>
           </li>
           <li className={styles["nav-item"]}>
@@ -67,36 +67,28 @@ export default function SideBar({ paymentsPageSize }) {
               }`}
             >
               <span className={styles["nav-icon"]}>2</span>
-              Edit Transcript
+              Create & Repurpose
             </Link>
           </li>
           <li className={styles["nav-item"]}>
-            <Link
-              href={{
-                pathname: "Config",
-                query: { title: currentProjectTitle },
-              }}
+            <div
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 2 && styles.inactive
               }`}
             >
               <span className={styles["nav-icon"]}>3</span>
-              Configuration
-            </Link>
+              Podcast Widget
+            </div>
           </li>
           <li className={styles["nav-item"]}>
-            <Link
-              href={{
-                pathname: "Payment",
-                query: { title: currentProjectTitle },
-              }}
+            <div
               className={`${styles["nav-link"]} ${
                 menuItemIndex != 3 && styles.inactive
               }`}
             >
               <span className={styles["nav-icon"]}>4</span>
-              Pricing
-            </Link>
+              Upgrade
+            </div>
           </li>
         </ul>
       </nav>

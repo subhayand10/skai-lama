@@ -7,8 +7,8 @@ import ProjectCard from "../components/ProjectCard/page";
 import Navbar from "../components/Navbar/page";
 import Image from "next/image";
 import hero_image from "../../public/hero_image.png"
-import add_icon from "../../public/add.png";
-import ScrollDown from "../components/ScrollDownAnimation/ScrollDown";
+//import add_icon from "../../public/add.png";
+import add_icon from "../../public/plus.png";
 
 const projectData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 export default function LandingPage() {
@@ -79,12 +79,13 @@ export default function LandingPage() {
                       className="mx-auto "
                     />
                   </div>
-                  <div className="">
-                    <ScrollDown />
-                  </div>
                 </div>
                 <p className={`${styles.text} dark `}>
-                  Make posts out of your Youtube videos and share them online!😇
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in
                 </p>
                 <button
                   className={`${styles.button}  dark hover:opacity-50 transition-all duration-200 ease-in-out`}
